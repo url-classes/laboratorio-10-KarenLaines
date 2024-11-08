@@ -133,21 +133,22 @@ export class RBTree {
         // corregir inserción
         this.fixInsert(newNode);
     }
-        // método de búsqueda  
-    public search(data: number): NodeRBT | null {
-    let current: NodeRBT = this.root;
+// método de búsqueda  
+public search(data: number): NodeRBT | null {
+  let current: NodeRBT = this.root;
 
-    while (current !== this.leaf) {
-        if (data === current.getData()) {
-            return current;
-        } else if (data < current.getData()) {
-            current = current.getLeftChild();
-        } else {
-            current = current.getRightChild();
-        }
+  while (current !== this.leaf) {
+    if (data === current.getData()) {
+      return current;
+    } else if (data < current.getData()) {
+      current = current.getLeftChild();
+    } else {
+      current = current.getRightChild();
     }
-    return null; // Nodo no encontrado
+  }
+  return null; // Nodo no encontrado
 }
+
     // método inorden
 public inorder(): void {
     this.inorder_aux(this.root);
